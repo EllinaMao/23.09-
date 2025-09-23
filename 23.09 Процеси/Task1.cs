@@ -21,7 +21,7 @@ namespace _23._09_Процеси
                 process.StartInfo.FileName = processName;
                 process.Start();
 
-                Console.WriteLine("Очікування завершення дочірнього процесу...");
+                Console.WriteLine("Ждем пока закроют дочерний процесс...");
                 process.WaitForExit();
 
             }
@@ -32,7 +32,7 @@ namespace _23._09_Процеси
             finally
             {
                 int exitCode = process.ExitCode;
-                Console.WriteLine($"Дочірній процес завершено. Код завершення: {exitCode}");
+                Console.WriteLine($"Дети закончились, всем до свидания: {exitCode}");
             }
 
         }

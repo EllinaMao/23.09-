@@ -8,7 +8,8 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Task1.RunAndWaitProcess("notepad.exe");
+            Task2.RunAndWaitOrKillProcess("notepad.exe");
         }
     }
 }
