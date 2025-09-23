@@ -32,7 +32,7 @@ namespace _23._09_Процеси
             }
             finally
             {
-                int exitode = process.ExitCode;
+                int exitCode = process.ExitCode;
                 Console.WriteLine($"Дочірній процес завершено. Код завершення: {exitCode}");
             }
 
