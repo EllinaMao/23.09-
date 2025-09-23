@@ -25,8 +25,7 @@ namespace _23._09_Процеси
                 process.WaitForExit();
 
             }
-            catch
-            {
+            catch(Exception ex) {
                 Console.WriteLine("Помилка: " + ex.Message);
 
             }
