@@ -16,7 +16,6 @@ namespace Task3MainApp
                 Console.WriteLine("Не найден путь к дочернему процессу в appsettings.");
                 return;
             }
-
             try
             {
 
