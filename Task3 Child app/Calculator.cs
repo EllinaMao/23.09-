@@ -9,7 +9,7 @@ namespace Task3_Child_app
 {
     public static class Calculator
     {
-        public static dynamic GetRes(string[] args)//изначально лучше было б просто дженерик, но я подумала что мы не знаем что зайдет в качестве аргументов так что поставила dynamic
+        public static object GetRes(string[] args)//изначально лучше было б просто дженерик, но я подумала что мы не знаем что зайдет в качестве аргументов так что я потом поставила dynamic, а потом и вовсе object потому что все равно Compute возвращает именно его
         {
             if(args.Length < 3)
             {
@@ -31,7 +31,7 @@ namespace Task3_Child_app
             }
 
         }
-        public static dynamic Calculate(string expression , string filter = "")
+        public static object Calculate(string expression , string filter = "")
         {
             var table = new System.Data.DataTable();/*табличка данных как бд, она пустая, она тут чисто метод вызвать*/
             try

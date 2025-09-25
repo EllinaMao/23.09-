@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,8 +9,6 @@ namespace Task3MainApp
 {
     public static class Task3
     {
-        public static string parentDir = AppDomain.CurrentDomain.BaseDirectory;
-        public static string childAppPath = System.IO.Path.Combine(parentDir, "Task3ChildApp.exe");
         public static void RunChildApp(string ChildPath, string[] arguments)
         {
 

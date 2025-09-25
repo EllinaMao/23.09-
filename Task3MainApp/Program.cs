@@ -1,49 +1,33 @@
-﻿using System.Diagnostics;
+﻿using System.Configuration;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace Task3MainApp
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            string parentProjectDir = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
-            // зараз parentProjectDir = D:\оля\сиспрог\Task3MainApp
-            string childFullPath = (Path.Combine(parentProjectDir , "..\\Task3 Child app\\bin\\Debug\\net8.0\\Task3ChildAppexe");)
-            childFullPath = Path.GetFullPath(childFullPath);
-
-
-            Console.WriteLine("Шлях до дочірнього процесу: " + childFullPath);
-
-            if (!File.Exists(childFullPath))
+            string[] arguments = {"7", "3", "+"};
+            string? exePath = ConfigurationManager.AppSettings["ChildExePath"];
+            int endCode = 0;
+            if (exePath == null)
             {
-                Console.WriteLine("Файл не найден: " + childFullPath);
+                Console.WriteLine("Не найден путь к дочернему процессу в appsettings.");
                 return;
             }
 
-            // Приклад запуску
-            ProcessStartInfo startInfo = new ProcessStartInfo
+            try
             {
-                FileName = childFullPath ,
-                Arguments = "7 3 +" ,
-                UseShellExecute = false ,
-                RedirectStandardOutput = true
-            };
 
-            using (Process process = new Process { StartInfo = startInfo })
+                Task3.RunChildApp(exePath, arguments);
+                Console.WriteLine("Дочерний процесс запущен!");
+            }
+            catch (Exception ex)
             {
-                try
-                {
-                    process.Start();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Ошибка запуска дочернего процесса: " + ex.Message);
-                    return;
-                }
-                string output = process.StandardOutput.ReadToEnd();
-                process.WaitForExit();
-                Console.WriteLine(output);
+                Console.WriteLine("Ошибка запуска: " + ex.Message);
             }
         }
     }
+
 }
