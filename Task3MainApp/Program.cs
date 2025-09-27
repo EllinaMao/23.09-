@@ -21,7 +21,6 @@ namespace Task3MainApp
             }
             try
             {
-
                 string output = Task3.RunChildApp(exePath, arguments);
                 Console.WriteLine("Дочерний процесс запущен!");
                 Console.WriteLine(output);

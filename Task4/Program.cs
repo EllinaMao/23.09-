@@ -15,8 +15,7 @@ bicycle
             string word = "bicycle";
 
             string[] arguments = new[] {filepath, word};
-            Console.WriteLine($"[Parent] exePath = {exePath}");
-            Console.WriteLine($"[Parent] arguments = {string.Join(", ", arguments)}");
+
             string output = Task3MainApp.Task3.RunChildApp(exePath, arguments);
             Console.WriteLine(output);
 
