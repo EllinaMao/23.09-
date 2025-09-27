@@ -1,7 +1,11 @@
 ﻿using System.Configuration;
 using System.Diagnostics;
 using System.Reflection;
-
+/*Розробіть додаток, який вміє запускати дочірній процес і передавати йому аргументи командного рядка. Як аргументи мають бути два числа й операція, яку необхідно виконати. Наприклад, аргументи:
+7
+3
++
+Дочірній процес має відобразити аргументи і вивести результат додавання 10 на екран.*/
 namespace Task3MainApp
 {
     internal class Program
@@ -10,7 +14,6 @@ namespace Task3MainApp
         {
             string[] arguments = {"7", "3", "+"};
             string? exePath = ConfigurationManager.AppSettings["ChildExePath"];
-            int endCode = 0;
             if (exePath == null)
             {
                 Console.WriteLine("Не найден путь к дочернему процессу в appsettings.");
@@ -19,8 +22,9 @@ namespace Task3MainApp
             try
             {
 
-                Task3.RunChildApp(exePath, arguments);
+                string output = Task3.RunChildApp(exePath, arguments);
                 Console.WriteLine("Дочерний процесс запущен!");
+                Console.WriteLine(output);
             }
             catch (Exception ex)
             {
