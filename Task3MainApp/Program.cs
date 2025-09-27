@@ -16,7 +16,7 @@ namespace Task3MainApp
             string? exePath = ConfigurationManager.AppSettings["ChildExePath"];
             if (exePath == null)
             {
-                Console.WriteLine("Не найден путь к дочернему процессу в appsettings.");
+                Console.WriteLine("Не найден путь к дочернему процессу в appsettings. Вы запускали приложение перед запуском этого? exe мог не сформироваться");
                 return;
             }
             try

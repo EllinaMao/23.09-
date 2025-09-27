@@ -15,7 +15,7 @@ namespace Task3_Child_app
             {
                 throw new ArgumentException("Недостаточно данных, передайте три аргумента");
             }
-            string expression = $"{args[0]} {args[1]} {args[2]}";
+            string expression = $"{args[0]} {args[2]} {args[1]}";
             try
             {
             var result = Calculate(expression);

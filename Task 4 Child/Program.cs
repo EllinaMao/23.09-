@@ -9,7 +9,6 @@ namespace Task_4_Child
 
         static void Main(string[] args)
         {
-            args = new string[] { "text.txt", "bicycle" };
             FileStream fs = new FileStream(args[0], FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
             string fileContent = sr.ReadToEnd();
@@ -17,8 +16,6 @@ namespace Task_4_Child
             Regex pattern = new Regex($@"\b{args[1]}\b", RegexOptions.IgnoreCase);
             MatchCollection matches = pattern.Matches(fileContent);
             Console.WriteLine($"The word '{args[1]}' occurs {matches.Count} times in the file '{args[0]}'.");
-
-
 
         }
     }

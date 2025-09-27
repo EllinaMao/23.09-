@@ -28,7 +28,7 @@ namespace Task3MainApp
             ProcessCreate(ref process , exepath , arguments);
             try
             {
-
+                
                 process.Start(); // запускаємо процес
                 string output = process.StandardOutput.ReadToEnd();
                 return output;
