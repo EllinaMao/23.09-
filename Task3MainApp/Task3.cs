@@ -10,7 +10,7 @@ namespace Task3MainApp
 {
     public static class Task3
     {
-        private static object ProcessCreate(ref Process process, string ChildPath, string[] arguments)
+        private static void ProcessCreate(ref Process process, string ChildPath, string[] arguments)
         {
             process.StartInfo.FileName = ChildPath;
             process.StartInfo.Arguments = string.Join(" ", arguments.Select(a => $"\"{a}\""));
@@ -18,7 +18,7 @@ namespace Task3MainApp
             process.StartInfo.CreateNoWindow = false; // позволить ОС создать отдельное окно
             process.StartInfo.RedirectStandardOutput = true; // читаємо його консольний вивід
             process.StartInfo.RedirectStandardError = true;  // читаємо його консольний вивід помилок
-            return process;
+
         }
 
         public static string RunChildApp(string exepath, string[] arguments)

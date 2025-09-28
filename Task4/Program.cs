@@ -10,14 +10,22 @@ namespace Task4
 E:\someFolder
 bicycle
 Дочірній процес має відобразити кількість разів, скільки слово bicycle зустрічається у файлі.*/
-            string? exePath = ConfigurationManager.AppSettings["ChildExePath"];
-            string filepath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "text.txt");
-            string word = "bicycle";
+            try
+            {
 
-            string[] arguments = new[] {filepath, word};
+                string? exePath = ConfigurationManager.AppSettings["ChildExePath"];
+                string filepath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "text.txt");
+                string word = "bicycle";
 
-            string output = Task3MainApp.Task3.RunChildApp(exePath, arguments);
-            Console.WriteLine(output);
+                string[] arguments = new[] { filepath, word };
+
+                string output = Task3MainApp.Task3.RunChildApp(exePath, arguments);
+                Console.WriteLine(output);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
 
         }
     }
